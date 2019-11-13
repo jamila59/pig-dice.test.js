@@ -7,7 +7,7 @@ export function Player (name, isActive) {
 }
 
 Player.prototype.roll = function () {
-  this.number = Math.ceil( Math.random() * 6 );
+  return this.number = Math.ceil( Math.random() * 6 );
 }
 
 Player.prototype.addScore = function () {
