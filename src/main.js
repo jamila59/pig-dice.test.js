@@ -2,20 +2,44 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import $ from 'jquery';
-import { Triangle } from './tracker';
+import { Player } from './pig-dice';
 // import { checkType } from './tracker';
 
+var nameFirstPlayer = "";
+var nameSecondPlayer = "";
 $(document).ready(function() {
-  $('.triangle-form').submit(function(event){
+
+$("#formOne").submit(function(event){
     event.preventDefault();
-
-    var side1t = parseInt($('#input1').val());
-    var side2t = parseInt($('#input2').val());
-    var side3t = parseInt($('#input3').val());
-
-    var endResult = Triangle(side1t, side2t, side3t);
-
-    $("#result").text(endResult);
-    $(".result").show();
-  });
+     nameFirstPlayer = $("input#nameID").val();
+     nameSecondPlayer = $("input#nameID7").val();
 });
+   var newPlayer  = new Player(nameFirstPlayer , true);
+   var newPlayer2  = new Player(nameSecondPlayer , false);
+
+    $("#roll").click(function(){
+      if (newPlayer.active === true) {
+        newPlayer.roll();
+        newPlayer.addScore();
+        newPlayer.alert();
+        $(".scorePerThisTurn1").text(newPlayer.number);
+        $(".overallScore1").text(newPlayer.totalScore);
+      } else {
+        console.log(newPlayer2);
+        newPlayer2.roll();
+        newPlayer2.addScore();
+        newPlayer2.alert();
+        $(".scorePerThisTurn2").text(newPlayer2.number);
+        $(".overallScore2").text(newPlayer2.totalScore);
+      }
+    });
+
+    // "HOLD" button functionality
+    $("#pause").click(function() {
+    newPlayer.changeActive();
+    alert(" It is " + newPlayer2.getName() + "'s turn ")
+    console.log(newPlayer2.getName());
+    newPlayer2.changeActive();
+  });
+
+ });

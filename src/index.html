@@ -2,34 +2,50 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <title>Triangle Tracker</title>
+    <title>Pig-Dice</title>
   </head>
   <body>
-      <div class="container">
-
-        <form class="triangle-form" action="index.html" method="post">
-          <div class="form-group">
-            <label for="input1">Enter first side:</label>
-            <input id="input1" type="number" name="" value="">
-
+<div class="container">
+  <div class="jumbotron">
+    <h1>Pig-Dice</h1>
+  </div>
+  <form id="formOne">
+    <div class="row">
+      <div class="col-md-6">
+        <p><b>Player 1</b></p>
+        <label for="name">Enter Name:</label>
+        <input type="text" id="nameID"><br><br><br>
+      </div><br>
+    <div class="col-md-6">
+      <p><b>Player 2</b></p>
+      <label for="name">Enter Name:</label>
+      <input type="text" id="nameID7"><br>
+    </div><br>
+    </div>
+  <button type="submit" class="btn btn-info btn-lg btn-block" name="button">Register Players!</button><br>
+  <button id="roll" class="btn btn-info btn-lg btn-block" type="click" name="button">Roll!</button><br>
+  <button id="pause" class="btn btn-info btn-lg btn-block" type="click" name="button">Hold!</button>
+  </form>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="whatRoll">
+            <p>Score per this turn:</p>
+              <span class="scorePerThisTurn1"></span><br>
+          </div><br><br>
+          <div class ="score">
+            <p>Overall Score:</p>
+              <span class="overallScore1"></span><br>
           </div>
-
-          <div class="form-group">
-            <label for="input2">Enter second side: </label>
-            <input id="input2" type="number" name="" value="">
-          </div>
-
-          <div class="form-group">
-            <label for="input3">Enter third side: </label>
-            <input id="input3" type="number" name="" value="">
-          </div>
-
-          <button id="submitButton" class="btn btn-dark" type="submit" name="button">Submit Button</button>
-
-        </form>
-        <div class="result">
-          <h2>It's an <span id="result"></span> triangle.</h2>
         </div>
-      </div>
-    </body>
+        <div class="col-md-6">
+          <div class="whatRoll">
+            <p>Score per this turn:</p>
+              <span class="scorePerThisTurn2"></span><br>
+          </div> <br><br>
+          <div class ="score">
+            <p>Overall Score:</p>
+              <span class="overallScore2"></span><br>
+          </div>
+        </div>
+</body>
 </html>
